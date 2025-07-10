@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Ady</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2b2b2b;
+            --secondary-color: #f5f5f5;
+            --hover-color: #2e4f96;
+            --dark-color: #000000;
+            --light-color: #f8f9fa;
+            --accent-color: #ff6584;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--secondary-color);
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: #000000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--light-color) !important;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            color: var(--light-color) !important;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--hover-color) !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--hover-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+            margin-bottom: -50px;
+            margin-top: 20px
+        }
+        
+        .hero-section {
+            background-image: url('img/bg-hero.jpg');
+            background-size:cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 70px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content h1 {
+            font-weight: 700;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            margin-top: 30px;
+            color: var(--secondary-color);
+        }
+        
+        .hero-content h1 span {
+            color: var(--secondary-color);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px);
+        }
+        
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 0;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .about-section, .services-section, .portfolio-section, .contact-section {
+            padding: 100px 0;
+        }
+        
+        .about-section {
+            background-color: var(--dark-color);
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+        }
+        
+        .progress-bar {
+            background-color: var(--hover-color);
+        }
+        
+        .services-section {
+            background-color: var(--dark-color);
+        }
+        
+        .service-card {
+            background-color: #000000;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .service-card-1 { 
+            background-color: #ffffff; color: #000000;
+        }
+        .service-card-2 { background-color: #ffffff; color: #000000; }
+        .service-card-3 { background-color: #ffffff; color: #000000; }
+        .service-card-4 { background-color: #ffffff; color: #000000; }
+        .service-card-5 { background-color: #ffffff; color: #000000; }
+        .service-card-6 { background-color: #ffffff; color: #000000; }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(108, 99, 255, 0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .portfolio-img {
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(108, 99, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .form-control {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: rgb(255, 255, 255);
+            padding: 50px 0 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-img {
+                margin-top: 50px;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-section, .services-section, .portfolio-section, .contact-section {
+                padding: 70px 0;
+            }
+        }
+
+        .services-section .col-lg-4 {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Portofolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1>Hi, I'm <span>Ady</span></h1>
+                        <p>Atau Andika Dwiyansyah Saya desainer grafis yang antusias membantu Anda menceritakan kisah melalui desain. Dari logo hingga materi promosi, saya berkomitmen menghadirkan solusi kreatif yang sesuai dengan karakter brand Anda.</p>
+                        <div class="d-flex flex-wrap">
+                            <a href="#portfolio" class="btn btn-primary me-3 mb-3">View My Work</a>
+                            <a href="#contact" class="btn btn-outline-primary mb-3">Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-img text-center">
+                        <img src="img/Ady.png" alt="Hero Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about-section text-light">
+        <div class="container">
+            <h2 class="section-title text-center">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img src="img/window.png" alt="About Image" class="img-fluid about-img">
+                </div>
+                <div class="col-lg-7 text-light">
+                    <h3 class="mb-4 text-light">Who am I?</h3>
+                    <p class="text-info mb-4 text-light">Saya memiliki latar belakang dalam desain grafis dengan pengalaman mengerjakan berbagai proyek branding, ilustrasi, hingga materi promosi digital. Berawal dari ketertarikan pada seni visual, saya mengembangkan keahlian di bidang desain untuk membantu bisnis dan organisasi membangun identitas yang kuat dan konsisten. Proses kreatif saya selalu dimulai dengan memahami nilai dan cerita yang ingin disampaikan, agar setiap karya memiliki makna yang tepat sasaran.</p>
+                    <p class="text-info mb-5 text-light">Saya percaya bahwa desain bukan hanya soal estetika, tetapi juga tentang komunikasi yang efektif. Oleh karena itu, saya berfokus menghadirkan solusi visual yang menarik, mudah dipahami, dan sesuai kebutuhan klien. Komitmen pada detail, kolaborasi yang terbuka, serta pembaruan pengetahuan desain menjadi bagian penting dari cara saya bekerja untuk menghasilkan karya yang relevan dan berdampak.</p>
+                    <h4 class="mb-4">My Skills</h4>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Photoshop</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Figma</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML/CSS</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Canva</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="services-section bg-black">
+        <div class="container">
+            <h2 class="section-title text-center">My Services</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card service-card-1">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Web Development</h4>
+                        <p>Custom website development using modern technologies like HTML5, CSS3, JavaScript, and popular frameworks to create fast, responsive websites.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card service-card-2">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Responsive Design</h4>
+                        <p>Creating websites that look and function perfectly on all devices, from desktop computers to smartphones and tablets.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card service-card-3">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4>UI/UX Design</h4>
+                        <p>Designing intuitive user interfaces with exceptional user experience that engages visitors and converts them into customers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section bg-black">
+        <div class="container">
+            <h2 class="section-title text-center">My Work</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item">
+                        <img src="img/Figma Apotek Berkat.png" alt="Portfolio Image" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">Figma Project : Apotek Berkat</h4>
+                            <p>Prototype UI/UX Apotek Berkat Aplikasi Kesehatan berbasis Online</p>
+                            <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item">
+                        <img src="img/Figma Aplikasi Unviversitas Politeknik Teknologi Nusantara.png" alt="Portfolio Image" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">Figma Project : Universi Politeknik Teknologi Nusantara</h4>
+                            <p>Prototype UI/UX Universitas Politeknik Teknologi Nusantara Aplikasi Universitas yang fleksible untuk Mahasiswa Baru, Mahasiswa Aktif, Admin dan Dosen berbasis Online</p>
+                            <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item">
+                        <img src="img/GRID BANNER TOPUP.jpg" alt="Portfolio Image" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">Banner Top Up Online Shop</h4>
+                            <p>Untuk Online Shop yang ingin jualan In Game Purchase Suatu Game</p>
+                            <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item">
+                        <img src="img/Lembar Fakta Jumbo.jpg" alt="Portfolio Image" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">Lembar Fakta Jumbo</h4>
+                            <p>Selembar Data atau Lembar Fakta Film Jumbo.</p>
+                            <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item">
+                        <img src="img/POSTER LOMBA.jpg" alt="Portfolio Image" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">Poster Bahaya AI</h4>
+                            <p>Tentang Dampak Bahaya AI Untuk Pekerjaan Dan Lain Lain.</p>
+                            <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item">
+                        <img src="img/Save Earth -DesainKemarin.png" alt="Portfolio Image" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">Poster Save Earth</h4>
+                            <p>Tentang Menyelamatkan Dunia Dengan membuang sampah pada tempatnya.</p>
+                            <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section bg-light text-dark">
+        <div class="container">
+            <h2 class="section-title text-center">Contact Me</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h5>Address</h5>
+                            <p>Jakarta</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h5>Phone</h5>
+                            <p>+62 851-5766-8496</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5>Email</h5>
+                            <p>miandikadwiyansyah@example.com</p>
+                        </div>
+                    </div>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="4" placeholder="Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2023 Portofolio Ady. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Back to Top Button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
